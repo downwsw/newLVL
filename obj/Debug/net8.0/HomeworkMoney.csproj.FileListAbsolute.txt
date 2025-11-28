@@ -1,0 +1,14 @@
+/home/nonentity/Рабочий стол/HomeworkMoney/bin/Debug/net8.0/HomeworkMoney
+/home/nonentity/Рабочий стол/HomeworkMoney/bin/Debug/net8.0/HomeworkMoney.deps.json
+/home/nonentity/Рабочий стол/HomeworkMoney/bin/Debug/net8.0/HomeworkMoney.runtimeconfig.json
+/home/nonentity/Рабочий стол/HomeworkMoney/bin/Debug/net8.0/HomeworkMoney.dll
+/home/nonentity/Рабочий стол/HomeworkMoney/bin/Debug/net8.0/HomeworkMoney.pdb
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.GeneratedMSBuildEditorConfig.editorconfig
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.AssemblyInfoInputs.cache
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.AssemblyInfo.cs
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.csproj.CoreCompileInputs.cache
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.dll
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/refint/HomeworkMoney.dll
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.pdb
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/HomeworkMoney.genruntimeconfig.cache
+/home/nonentity/Рабочий стол/HomeworkMoney/obj/Debug/net8.0/ref/HomeworkMoney.dll
