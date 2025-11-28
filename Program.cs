@@ -2,8 +2,6 @@ using System;
 
 namespace HomeworkMoney
 {
-    // Класс для нашей ошибки "Банкрут"
-    // Наследуемся от ApplicationException, как в задании
     class BankruptException : ApplicationException
     {
         public BankruptException(string message) : base(message)
@@ -13,7 +11,6 @@ namespace HomeworkMoney
 
     class Money
     {
-        // Поля делаем public, чтобы было проще (хотя профи делают private)
         public int Hryvnia { get; set; }
         public int Kopecks { get; set; }
 
@@ -21,10 +18,9 @@ namespace HomeworkMoney
         {
             Hryvnia = h;
             Kopecks = k;
-            Normalize(); // Сразу приводим в порядок (чтобы не было 120 копеек)
+            Normalize();
         }
 
-        // Вспомогательный метод, чтобы пересчитать копейки в гривны
         private void Normalize()
         {
             if (Kopecks >= 100)
@@ -34,20 +30,17 @@ namespace HomeworkMoney
             }
         }
 
-        // Метод для получения общей суммы в копейках (так легче считать)
         public int ToTotalKopecks()
         {
             return Hryvnia * 100 + Kopecks;
         }
 
-        // Перегрузка +
         public static Money operator +(Money m1, Money m2)
         {
             int total = m1.ToTotalKopecks() + m2.ToTotalKopecks();
             return new Money(0, total);
         }
 
-        // Перегрузка -
         public static Money operator -(Money m1, Money m2)
         {
             int total = m1.ToTotalKopecks() - m2.ToTotalKopecks();
@@ -58,14 +51,12 @@ namespace HomeworkMoney
             return new Money(0, total);
         }
 
-        // Перегрузка * (умножение на целое число)
         public static Money operator *(Money m, int multiplier)
         {
             int total = m.ToTotalKopecks() * multiplier;
             return new Money(0, total);
         }
 
-        // Перегрузка / (деление на целое число)
         public static Money operator /(Money m, int divider)
         {
             if (divider == 0) throw new DivideByZeroException("На ноль делить нельзя!");
@@ -74,14 +65,12 @@ namespace HomeworkMoney
             return new Money(0, total);
         }
 
-        // Перегрузка ++ (добавляем 1 копейку)
         public static Money operator ++(Money m)
         {
             int total = m.ToTotalKopecks() + 1;
             return new Money(0, total);
         }
 
-        // Перегрузка -- (убираем 1 копейку)
         public static Money operator --(Money m)
         {
             int total = m.ToTotalKopecks() - 1;
@@ -92,7 +81,6 @@ namespace HomeworkMoney
             return new Money(0, total);
         }
 
-        // Операторы сравнения
         public static bool operator >(Money m1, Money m2)
         {
             return m1.ToTotalKopecks() > m2.ToTotalKopecks();
@@ -113,7 +101,6 @@ namespace HomeworkMoney
             return m1.ToTotalKopecks() != m2.ToTotalKopecks();
         }
 
-        // Это нужно, чтобы не ругался компилятор на == и !=
         public override bool Equals(object obj)
         {
             return base.Equals(obj);
@@ -123,7 +110,6 @@ namespace HomeworkMoney
             return base.GetHashCode();
         }
 
-        // Чтобы красиво выводить на экран
         public override string ToString()
         {
             return $"{Hryvnia} грн. {Kopecks:D2} коп.";
@@ -134,13 +120,11 @@ namespace HomeworkMoney
     {
         static void Main(string[] args)
         {
-            // Для вывода кириллицы в консоли
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             Console.WriteLine("=== Демонстрация класса Money ===");
             
-            // Создаем начальную сумму
-            Money myMoney = new Money(10, 50); // 10 грн 50 коп
+            Money myMoney = new Money(10, 50); 
 
             while (true)
             {
@@ -177,7 +161,7 @@ namespace HomeworkMoney
                         Console.Write("Введите копейки: ");
                         int k = int.Parse(Console.ReadLine());
                         Money sub = new Money(h, k);
-                        myMoney = myMoney - sub; // Тут может вылететь Банкрут!
+                        myMoney = myMoney - sub; 
                     }
                     else if (choice == "3")
                     {
@@ -197,13 +181,13 @@ namespace HomeworkMoney
                     }
                     else if (choice == "6")
                     {
-                        myMoney--; // Тут тоже может быть Банкрут
+                        myMoney--; 
                     }
                     else if (choice == "7")
                     {
                         Console.Write("Введите гривны для сравнения: ");
                         int h = int.Parse(Console.ReadLine());
-                        int k = 0; // упростим, без копеек
+                        int k = 0;
                         Money compare = new Money(h, k);
                         if (myMoney > compare) Console.WriteLine("Ваша сумма больше.");
                         else if (myMoney < compare) Console.WriteLine("Ваша сумма меньше.");
